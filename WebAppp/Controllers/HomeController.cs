@@ -10,12 +10,20 @@ namespace WebAppp.Controllers
         {
             return View();
         }
+       
+       
 
-        public IActionResult Privacy()
+        public IActionResult ContactUs()
         {
             return View();
         }
-        public IActionResult Product()
+
+        [HttpPost]
+        public IActionResult Contactus(string email, string subject, string message)
+        {
+            return Json(email + subject + message);
+        }
+        public IActionResult Privacy()
         {
             return View();
         }

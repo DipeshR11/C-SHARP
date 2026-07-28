@@ -1,6 +1,14 @@
-﻿<h3>product detail</h3>
-<div>
-    <label>Name @Model.Name</label>
-    <label>Description @Model.Description</label>
-    <label>Price @Model>Price></label>
-</div>
+﻿@model WebAppp.Models.Product
+
+<h2>Product Details</h2>
+
+<hr />
+
+<p><strong>Id:</strong> @Model.Id</p>
+<p><strong>Name:</strong> @Model.Name</p>
+<p><strong>Description:</strong> @Model.Description</p>
+<p><strong>Price:</strong> @Model.Price</p>
+
+<a asp-action="Index" class="btn btn-secondary">
+    Back
+</a>
