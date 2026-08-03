@@ -2,8 +2,8 @@
 {
     public class Contact
     {
-        string email { get; set; }
-        string subject { get; set; }
-        string message { get; set; }
+        public string? Email { get; set; }
+        public string? Subject { get; set; }
+        public string? Message { get; set; }
     }
 }

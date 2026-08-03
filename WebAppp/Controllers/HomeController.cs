@@ -10,8 +10,6 @@ namespace WebAppp.Controllers
         {
             return View();
         }
-       
-       
 
         public IActionResult ContactUs()
         {
@@ -19,20 +17,31 @@ namespace WebAppp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Contactus(string email, string subject, string message)
+        public IActionResult ContactUs(string email, string subject, string message)
         {
-            return Json(email + subject + message);
+            return Json(new
+            {
+                Email = email,
+                Subject = subject,
+                Message = message
+            });
         }
+
         public IActionResult Privacy()
         {
             return View();
         }
 
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [ResponseCache(Duration = 0,
+            Location = ResponseCacheLocation.None,
+            NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel
+            {
+                RequestId = Activity.Current?.Id ??
+                            HttpContext.TraceIdentifier
+            });
         }
     }
 }

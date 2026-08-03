@@ -1,52 +1,40 @@
-﻿@model IEnumerable<WebAppp.Models.Product>
+﻿@model IEnumerable<WebAppp.Models.Category>
 
 @{
-    ViewData["Title"] = "Product List";
+    ViewData["Title"] = "Category List";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h2>Category List</h2>
 
 <div class="mb-3">
     <a asp-action="Add" class="btn btn-primary">
-        Add New Product
+        Add Category
     </a>
 </div>
 
-<table class="table table-bordered table-striped">
-    <thead class="table-dark">
+<table class="table table-bordered">
+    <thead>
         <tr>
-            <th>Product Name</th>
+            <th>Id</th>
+            <th>Name</th>
             <th>Description</th>
-            <th>Price</th>
-            <th width="250">Action</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        @if (Model.Any())
+        @if (Model != null && Model.Any())
         {
-            @foreach (var product in Model)
+            @foreach (var category in Model)
             {
                 <tr>
-                    <td>@product.Name</td>
-                    <td>@product.Description</td>
-                    <td>@product.Price.ToString("C")</td>
+                    <td>@category.Id</td>
+                    <td>@category.Name</td>
+                    <td>@category.Description</td>
                     <td>
-                        <a asp-action="Details"
-                           asp-route-id="@product.Id"
+                        <a asp-action="Detail"
+                           asp-route-id="@category.Id"
                            class="btn btn-info btn-sm">
-                            Details
-                        </a>
-
-                        <a asp-action="Edit"
-                           asp-route-id="@product.Id"
-                           class="btn btn-warning btn-sm">
-                            Edit
-                        </a>
-
-                        <a asp-action="Delete"
-                           asp-route-id="@product.Id"
-                           class="btn btn-danger btn-sm">
-                            Delete
+                            View
                         </a>
                     </td>
                 </tr>
@@ -56,7 +44,7 @@
         {
             <tr>
                 <td colspan="4" class="text-center">
-                    No products available.
+                    No categories available.
                 </td>
             </tr>
         }
